@@ -1,0 +1,61 @@
+
+<DOCTYPE HTML>
+<html>
+<head>
+<script src = 'd3.js'></script>
+</head>
+
+<body>
+
+<script>
+
+var data = [70,150,300,140,100];
+var data1 = [100,140,300,150,70];
+
+var canvas = d3.select("body")
+			.append("svg")
+			.attr("width",500)
+			.attr("height",500);
+
+var bars_ver = canvas.selectAll("rect")
+			.data(data)
+			.enter()
+			.append("rect")
+			.attr("width",40)
+			.attr("height",function(d,i){ if (i==2) return 150;else return d;})
+			.attr("x",function(d,i){ return i*50+20; })
+			.attr("y",function(d,i){if (i==2) return 350;else return 500-d;})
+			.style("fill","#ffad33")
+			.attr("rx",20);	//round edges(edges LOL)
+
+var canvas1 = d3.select("body")
+			.append("svg")
+			.attr("width",500)
+			.attr("height",500);
+
+var bars_ver1 = canvas1.selectAll("rect")
+			.data(data1)
+			.enter()
+			.append("rect")
+			.attr("width",40)
+			.attr("height",function(d,i){ if (i==2) return 150;else return d;})
+			.attr("x",function(d,i){ return i*50+20; })
+			.attr("y",function(d,i){if (i==2) return 350;else return 500-d;})
+			.style("fill","#ffad33")
+			.attr("rx",20);	//round edges(edges LOL)
+
+bars_ver.transition()
+		.duration(1000)
+		.attr("height",function(d,i){ if (i==2) return 300;else return d;})
+		.attr("y",function(d,i){if (i==2) return 200;else return 500-d;});
+
+bars_ver1.transition()
+		.duration(1000)
+		.attr("height",function(d,i){ if (i==2) return 300;else return d;})
+		.attr("y",function(d,i){if (i==2) return 200;else return 500-d;});
+
+</script>
+
+
+</body>
+</html>
