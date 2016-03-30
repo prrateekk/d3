@@ -37,7 +37,7 @@ var bars_ver = canvas.selectAll("rect")
 			.attr("height",0)
 			.attr("x",function(d,i){ return i*50+20; })
 			.attr("y",500)
-			.style("fill",function(d){return color_scale(d);})
+			.style("fill","yellow")
 			.attr("rx",5);
 
 var gaxis = canvas.append("g")
@@ -46,6 +46,7 @@ var gaxis = canvas.append("g")
 
 bars_ver.transition()
 	.duration(1000)
+	.style("fill",function(d){return color_scale(d);})
 	.attr("height",function(d){return scale(d);})
 	.attr("y",function(d){return 500-scale(d);});
 
