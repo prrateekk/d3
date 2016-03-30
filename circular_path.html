@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<script src = 'd3.js'></script>
+  </head>
+
+  <body>
+  <p id="yo"></p>
+<script>
+	
+	var data = [];
+
+	for(var i=0;i<100;i++){
+		data.push(i);
+	}
+
+	var canvas = d3.select("body").append("svg").attr("width",1000).attr("height",1000);
+	var sign = 1;
+	var line = d3.svg.line()
+			.x(function(d){return d;})
+			.y(function(d){return Math.sqrt(10000-d*d)});
+
+	canvas.selectAll("path")
+		.data([data])
+		.enter()
+		.append("path")
+		.attr("d",line)
+		.attr("fill","none")
+		.attr("stroke","black")
+		.attr("stroke-width","10");
+		
+</script>
+  </body>
+
+</html>
