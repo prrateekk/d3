@@ -9,7 +9,7 @@
 <script>
 
 var data = [100,200,300,400,500,700,900,1000];
-
+d3.shuffle(data);
 var scale = d3.scale.linear()
 			.domain([0,1000])
 			.range([0,500]);
