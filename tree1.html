@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<script src = 'd3.js'></script>
+  </head>
+
+  <body>
+<script>
+
+	var canvas = d3.select("body").append("svg").attr("width",500).attr("height",500);
+
+	var diagonal = d3.svg.diagonal()
+				.source({x:10,y:10})
+				.target({x:100,y:100})
+
+	canvas.append('path')
+		.attr('fill','None')
+		.attr('stroke','black')
+		.attr('d',diagonal)
+
+
+</script>
+  </body>
+
+</html>
