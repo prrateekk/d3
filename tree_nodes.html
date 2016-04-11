@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<script src = 'd3.js'></script>
+  </head>
+
+  <body>
+<script>
+
+	var data = {"name":"lol",
+				"children":
+					[{"name":"lolita",
+						"children":[{"name":"blah"},{"name":"brr"}]},
+					{"name":"lolum","children":[{"name":"f_you"},{"name":"too"}]}]
+				};
+
+	var canvas = d3.select("body").append("svg").attr("width",500).attr("height",500).append("g").attr("transform","translate(50,50)");
+
+
+	var tree = d3.layout.tree()
+			.size([400,400]);
+
+	var nodes = tree.nodes(data);
+	var links = tree.links(nodes);
+
+	var node = canvas.selectAll(".node")
+			.data(nodes)
+			.enter()
+			.append("g")
+			.attr("class","node")
+			.attr("transform",function(d){return "translate("+d.x+","+d.y+")";});
+
+	node.append("circle")
+		.attr("r","10")
+		.attr("fill","steelblue");
+
+
+</script>
+  </body>
+
+</html>
