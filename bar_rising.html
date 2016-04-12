@@ -16,7 +16,7 @@ var scale = d3.scale.linear()
 
 var color_scale = d3.scale.linear()
 			.domain([0,1000])
-			.range(["purple","black"]);
+			.range(["yellow","red"]);
 
 var axis = d3.svg.axis()
 			.ticks(8)
@@ -37,7 +37,7 @@ var bars_ver = canvas.selectAll("rect")
 			.attr("height",0)
 			.attr("x",function(d,i){ return i*50+20; })
 			.attr("y",500)
-			.style("fill","black")
+			.style("fill","yellow")
 			.attr("rx",5);
 
 var gaxis = canvas.append("g")
