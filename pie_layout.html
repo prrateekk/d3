@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<script src='d3.js'></script>
+</head>
+
+<body>
+<script>
+	
+
+	var r=300;
+	var data = [100,200,500];
+
+	var color = d3.scale.ordinal()
+				.range(['blue','steelblue','skyblue'])
+				.domain([0,500]);
+
+	var canvas = d3.select('body').append('svg').attr('width',1000).attr('height',1000);
+
+	var group = canvas.append('g').attr('transform','translate(300,300)');
+
+	var arc = d3.svg.arc()
+			.outerRadius(r)
+			.innerRadius(200);
+
+	var pie = d3.layout.pie()
+			.value(function(d){return d;});
+	
+	var arcs = group.selectAll('.arc')
+			.data(pie(data))
+			.enter()
+			.append('g')
+			.attr('class','arc');
+	
+	arcs.append('path')
+		.attr('d',arc)
+		.attr('fill',function(d){return color(d.data);}).text("lol");
+
+</script>
+</body>
+</html>
